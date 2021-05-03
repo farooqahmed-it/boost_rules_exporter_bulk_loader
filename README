@@ -1,0 +1,29 @@
+# Boost Rule Util Scripts
+Boost Rule Util Scripts is to export or bulk import business rules to Lucidworks fusion5
+
+
+## boost_rule_endeca_csv_export.py
+The utility scrip takes Endeca workbench IFCR content export of the existing boost rules 
+The output produces csv export of the jcr content stored under content directory, boost_rules_export.csv 
+
+## Usage
+basePath - variable expects location to the IFCR exported content directory, relative to the script folder
+
+
+## boost_rule_fusion5_lw_bulk_post.py
+The utility scrip takes csv export of keywords array, skus array as input
+builds json payload to be posted to LW fusion5 to bulk upload boost rules.
+
+basePath - variable expects location to the IFCR exported content directory, relative to the script folder
+filename - csv export of the business rules to be imported.  Expecting three columns, name, keywords[], skus[]
+
+Format:
+name,keywords,skus
+-20 freezer,['-20 freezer'],"['ASX23X0FV', 'UGL30XD', 'UXEN2320A', 'FFEXN2320A', 'MF225SS-SAEE-TS', '20LFXEETSA', '2232G-AEV-TS', 'TSTGS2320A', 'FFHL3020A']"
+-40 freezer,['-40 freezer'],"['DXJK24040A', '71140A', 'TJD40240A', 'ULT1370-10-A', '7032CA', 'TSC7350A', 'XCF40D', 'XBF43D-MD']"
+-70 freezer,['-70 freezer'],['TSX609086D']
+
+lw_f5_url - Lucidworks Fusion 5 URL
+user - username to LW Fusion 5
+password - password to LW Fusion 5
+
